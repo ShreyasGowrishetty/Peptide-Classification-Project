@@ -35,18 +35,18 @@ Activity classes:
 
 Train a model that predicts all applicable activity classes for each peptide.
 
-Two input settings are valid:
+The submitted model must be able to make predictions in both input modes:
 
-- sequence only
-- sequence plus structure
+- sequence only, when only the peptide sequence is provided
+- sequence plus structure, when both the sequence and PDB structure are provided
 
 There is no required architecture. Classical features, embeddings, sequence models, structure-aware methods, and hybrid systems are all valid if the result is reproducible.
 
 ## Evaluation
 
-Evaluation is multi-label classification on a held-out set with the same columns as `data/labels.sqlite`.
+Evaluation is multi-label classification on a held-out set with the same columns as `data/labels.sqlite`. Each submission will be evaluated separately in both input modes: sequence only and sequence plus structure.
 
-Submissions should produce one score or probability per class for each peptide ID. The input setting must be declared as either sequence only or sequence plus structure.
+Submissions should produce one score or probability per class for each peptide ID in either mode.
 
 Primary metric:
 
